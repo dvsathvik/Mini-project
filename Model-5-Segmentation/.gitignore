@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+.env
+
+# Large Datasets
+data/
+*.nii
+*.nii.gz
+*.csv
+
+# Visualization artifacts
+*.html
+
+# Optionally ignore weights if they get too large (currently tracking the 19MB best_hippocampus_unet.pth is okay for GitHub, but uncomment below to ignore)
+# *.pth
+# best_hippocampus_unet/
