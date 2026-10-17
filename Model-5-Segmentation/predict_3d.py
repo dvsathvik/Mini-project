@@ -99,7 +99,7 @@ def create_3d_visualization(mri_volume, mask_volume, volume_mm3, diagnosis, samp
         margin=dict(l=0, r=0, b=0, t=50)
     )
     
-    output_html = os.path.join(script_dir, f"3D_Hippocampus_Report_Sample_{sample_idx}.html")
+    output_html = os.path.join(script_dir, "test_results", f"3D_Hippocampus_Report_Sample_{sample_idx}.html")
     fig.write_html(output_html)
     return output_html
 
@@ -142,7 +142,7 @@ def main():
         num_res_units=2,
     ).to(device)
 
-    model_path = os.path.join(script_dir, "best_hippocampus_unet.pth")
+    model_path = os.path.join(script_dir, "test_results", "best_hippocampus_unet.pth")
     if not os.path.exists(model_path):
         print(f"Error: Could not find {model_path}.")
         return

@@ -177,7 +177,7 @@ def main():
         num_res_units=2,
     ).to(device)
 
-    model_path = os.path.join(script_dir, "best_hippocampus_unet.pth")
+    model_path = os.path.join(script_dir, "test_results", "best_hippocampus_unet.pth")
     model.load_state_dict(torch.load(model_path, map_location=device))
     model.eval()
 
@@ -206,7 +206,7 @@ def main():
             true_diag, true_color = "Unknown", "grey"
             etiv = 1500 # Fallback
             
-        nii_path = os.path.join(project_dir, fname)
+        nii_path = os.path.join(project_dir, "Sample_NIfTI_Files", fname)
         if not os.path.exists(nii_path):
             continue
             
@@ -240,7 +240,7 @@ def main():
         
         print(f"{patient_id:<15} | {volume:<10} | {etiv:<10} | {ratio:<6.2f} | {pred_diag:<25} | {true_diag:<20}")
         
-        out_html = os.path.join(script_dir, f"OASIS_IntersectingPlanes_{patient_id}.html")
+        out_html = os.path.join(script_dir, "test_results", f"OASIS_IntersectingPlanes_{patient_id}.html")
         create_glass_brain_visualization(
             full_mri=img, 
             mask_volume=mask, 
